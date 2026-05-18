@@ -1,28 +1,39 @@
 import { AdminPage } from "@/admin/pages/AdminPage";
-import { HomePage } from "@/heroes/home/HomePage";
+import { HomePage } from "@/heroes/pages/home/HomePage";
 import { HeroPage } from "@/heroes/pages/hero/HeroPage";
-import { SearchPage } from "@/heroes/search/SearchPage";
+import { SearchPage } from "@/heroes/pages/search/SearchPage";
 import { createBrowserRouter } from "react-router";
+import { HeroesLayout } from "@/heroes/layouts/HeroesLayout";
+import { AdminLayouts } from "@/admin/Layouts/AdminLayouts";
 
 export const appRouter = createBrowserRouter([
+//Cuando son rutas hijas no se pone el primer "/"
   {
-    path: "/",
+    path:"/",
+    element: <HeroesLayout/>,
+    children: [  
+  {
+    index: true,
     element: <HomePage />,
   },
   {
-    path: "/heroes/1",
+    path: "heroes/1",
     element: <HeroPage />,
   },
   {
-    path: "/search",
+    path: "search",
     element: <SearchPage />,
   },
-  {
-    path: "/search",
-    element: <SearchPage />,
+],
   },
   {
-    path: "/amdin",
-    element: <AdminPage />,
+    path: "/admin",
+    element: <AdminLayouts />,
+    children:[
+      {
+      index: true,
+      element: <AdminPage/>
+    }
+    ]
   },
 ]);
