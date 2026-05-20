@@ -1,30 +1,29 @@
-import { Heart, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { CustomJumbotron } from "@/components/custom/CustomJumbotron";
 import { HeroStats } from "@/heroes/components/HeroStats";
 import { HeroGrid } from "@/heroes/components/HeroGrid";
 import { useState } from "react";
 import { CustomPagination } from "@/components/custom/CustomPagination";
+import { CustomBreadcrumbs } from "@/components/custom/CustomBreadcrumbs";
 
 export const HomePage = () => {
   const [activeTab, setActiveTab] = useState<
-    "all" | "Favorites" | "Heroes" | "Villains"
+    "all" | "favorites" | "heroes" | "villains"
   >("all");
+
   return (
     <>
       <>
+        {/* Header */}
         <CustomJumbotron
-          title="Universo de superheroes"
-          description="Descubre, explora y administra superheroes y villanos"
+          title="Heroes Search"
+          description="Find, explore and admin your favourite heroes"
         />
+
+        <CustomBreadcrumbs currentPage="Super Héroes" />
 
         {/* Stats Dashboard */}
         <HeroStats />
-
-        {/* Controls */}
-
-        {/* Advanced Filters */}
 
         {/* Tabs */}
         <Tabs value={activeTab} className="mb-8">
@@ -35,36 +34,38 @@ export const HomePage = () => {
             <TabsTrigger
               value="favorites"
               className="flex items-center gap-2"
-              onClick={() => setActiveTab("Favorites")}
+              onClick={() => setActiveTab("favorites")}
             >
-              <Heart className="h-4 w-4" />
               Favorites (3)
             </TabsTrigger>
-            <TabsTrigger value="heroes" onClick={() => setActiveTab("Heroes")}>
+            <TabsTrigger value="heroes" onClick={() => setActiveTab("heroes")}>
               Heroes (12)
             </TabsTrigger>
             <TabsTrigger
               value="villains"
-              onClick={() => setActiveTab("Villains")}
+              onClick={() => setActiveTab("villains")}
             >
               Villains (2)
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="all">
-            {/* mostrar todos los personajes */}
+            {/* Mostrar todos los personajes */}
             <HeroGrid />
           </TabsContent>
-          <TabsContent value="Favorites">
-            {/* mostrar todos los Favoritos */}
+          <TabsContent value="favorites">
+            {/* Mostrar todos los personajes favoritos */}
+            <h1>Favoritos!!!</h1>
             <HeroGrid />
           </TabsContent>
-          <TabsContent value="Heroes">
-            {/* mostrar todos los Heroes */}
+          <TabsContent value="heroes">
+            {/* Mostrar todos los héroes */}
+            <h1>Héroes</h1>
             <HeroGrid />
           </TabsContent>
-          <TabsContent value="Villains">
-            {/* mostrar todos los villanos */}
+          <TabsContent value="villains">
+            {/* Mostrar todos los Villanos */}
+            <h1>Villanos</h1>
             <HeroGrid />
           </TabsContent>
         </Tabs>
