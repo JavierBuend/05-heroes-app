@@ -1,3 +1,7 @@
+import { useParams } from "react-router";
+
 export const HeroPage = () => {
-  return <div>HeroPage</div>;
+  const { slugId = "" } = useParams();
+  console.log({ slugId });
+  return <div>Hero page</div>;
 };
