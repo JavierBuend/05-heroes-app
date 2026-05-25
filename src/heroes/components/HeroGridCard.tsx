@@ -29,7 +29,6 @@ export const HeroGridCard = ({ hero }: Props) => {
 
         {/* Status indicator */}
         <div className="absolute top-3 left-3 flex items-center gap-2">
-          {/* 🔧 FIXED: Changed the class string evaluation to use proper template literal syntax `${}` */}
           <div
             className={`w-3 h-3 rounded-full ${hero.status === "Active" ? "bg-green-500" : "bg-red-500"}`}
           />
