@@ -1,19 +1,19 @@
-import { lazy } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router';
+import { lazy } from "react";
+import { createBrowserRouter, Navigate } from "react-router";
 
-import { AdminLayout } from '@/admin/layouts/AdminLayout';
-import { AdminPage } from '@/admin/pages/AdminPage';
-import { HeroesLayout } from '@/heroes/layouts/HeroesLayout';
-import { HeroPage } from '@/heroes/pages/hero/HeroPage';
-import { HomePage } from '@/heroes/pages/home/HomePage';
+import { AdminLayout } from "@/admin/layouts/AdminLayout";
+import { AdminPage } from "@/admin/pages/AdminPage";
+import { HeroesLayout } from "@/heroes/layouts/HeroesLayout";
+import { HeroPage } from "@/heroes/pages/hero/HeroPage";
+import { HomePage } from "@/heroes/pages/home/HomePage";
 
 // import { SearchPage } from '@/heroes/pages/search/SearchPage';
 
-const SearchPage = lazy(() => import('@/heroes/pages/search/SearchPage'));
+const SearchPage = lazy(() => import("@/heroes/pages/search/SearchPage"));
 
 export const appRouter = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <HeroesLayout />,
     children: [
       {
@@ -21,15 +21,15 @@ export const appRouter = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'heroes/:idSlug',
+        path: "heroes/:idSlug",
         element: <HeroPage />,
       },
       {
-        path: 'search',
+        path: "search",
         element: <SearchPage />,
       },
       {
-        path: '*',
+        path: "*",
         // element: <h1>404</h1>,
         element: <Navigate to="/" />,
       },
@@ -37,7 +37,7 @@ export const appRouter = createBrowserRouter([
   },
 
   {
-    path: '/admin',
+    path: "/admin",
     element: <AdminLayout />,
     children: [
       {
