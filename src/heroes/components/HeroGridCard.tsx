@@ -1,10 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Heart, Eye, Brain, Gauge, Shield, Zap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import type { Hero } from "../types/hero.interface";
-import { useNavigate } from "react-router";
+import { Heart, Eye, Zap, Brain, Gauge, Shield } from 'lucide-react';
+import { useNavigate } from 'react-router';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import type { Hero } from '../types/hero.interface';
 
 interface Props {
   hero: Hero;
@@ -21,7 +22,7 @@ export const HeroGridCard = ({ hero }: Props) => {
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50">
       <div className="relative h-64">
         <img
-          src={hero.Image}
+          src={hero.image}
           alt={hero.name}
           className="object-cover transition-all duration-500 group-hover:scale-110 absolute top-[-30px] w-full h-[410px]"
           onClick={handleClick}
@@ -30,7 +31,9 @@ export const HeroGridCard = ({ hero }: Props) => {
         {/* Status indicator */}
         <div className="absolute top-3 left-3 flex items-center gap-2">
           <div
-            className={`w-3 h-3 rounded-full ${hero.status === "Active" ? "bg-green-500" : "bg-red-500"}`}
+            className={`w-3 h-3 rounded-full ${
+              hero.status === 'Active' ? 'bg-green-500' : 'bg-red-500'
+            }`}
           />
           <Badge
             variant="secondary"
@@ -41,7 +44,7 @@ export const HeroGridCard = ({ hero }: Props) => {
         </div>
 
         {/* Universe badge */}
-        {hero.universe === "DC" ? (
+        {hero.universe === 'DC' ? (
           <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">
             {hero.universe}
           </Badge>
@@ -93,7 +96,7 @@ export const HeroGridCard = ({ hero }: Props) => {
           <div className="space-y-1">
             <div className="flex items-center gap-1">
               <Zap className="h-3 w-3 text-orange-500" />
-              <span className="text-xs font-medium">strength</span>
+              <span className="text-xs font-medium">Strength</span>
             </div>
             <Progress
               value={hero.strength * 10}
@@ -140,12 +143,12 @@ export const HeroGridCard = ({ hero }: Props) => {
         <div className="space-y-2">
           <h4 className="font-medium text-sm">Powers:</h4>
           <div className="flex flex-wrap gap-1">
-            {/* 🔧 FIXED: Added the `key` prop to the mapped Badge element below */}
             {hero.powers.slice(0, 3).map((power) => (
-              <Badge key={power} variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs" key={power}>
                 {power}
               </Badge>
             ))}
+
             {hero.powers.length > 3 && (
               <Badge variant="outline" className="text-xs bg-gray-100">
                 +{hero.powers.length - 3} more
@@ -155,7 +158,7 @@ export const HeroGridCard = ({ hero }: Props) => {
         </div>
 
         <div className="text-xs text-gray-500 pt-2 border-t">
-          First Appearance: {hero.firstAppearance}
+          Primera aparición: {hero.firstAppearance}
         </div>
       </CardContent>
     </Card>

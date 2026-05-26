@@ -1,12 +1,12 @@
-import { SlashIcon } from "lucide-react";
+import { SlashIcon } from 'lucide-react';
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from "../ui/breadcrumb";
-import { Link } from "react-router";
+} from '../ui/breadcrumb';
+import { Link } from 'react-router';
 
 interface Breadcrumb {
   label: string;

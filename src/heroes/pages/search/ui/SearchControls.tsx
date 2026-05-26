@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Filter, SortAsc, Grid, Plus } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Search, Filter, SortAsc, Grid, Plus } from 'lucide-react';
 
 export const SearchControls = () => {
   return (
@@ -38,8 +38,7 @@ export const SearchControls = () => {
         </div>
       </div>
 
-      {/* Advanced filters */}
-
+      {/* Advanced Filters */}
       <div className="bg-white rounded-lg p-6 mb-8 shadow-sm border">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">Advanced Filters</h3>
@@ -77,7 +76,7 @@ export const SearchControls = () => {
             <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
               <div
                 className="absolute h-full bg-primary"
-                style={{ width: "0%" }}
+                style={{ width: '0%' }}
               />
             </div>
             <div className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors" />

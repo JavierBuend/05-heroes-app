@@ -1,17 +1,17 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getHeroAction } from "@/heroes/actions/get-hero.action";
-import { useQuery } from "@tanstack/react-query";
-import { Shield, Zap, Brain, Gauge, Users, Star, Award } from "lucide-react";
-import { Navigate, useParams } from "react-router";
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { getHeroAction } from '@/heroes/actions/get-hero.action';
+import { useQuery } from '@tanstack/react-query';
+import { Shield, Zap, Brain, Gauge, Users, Star, Award } from 'lucide-react';
+import { Navigate, useParams } from 'react-router';
 
 export const HeroPage = () => {
-  const { idSlug = "" } = useParams();
+  const { idSlug = '' } = useParams();
 
   const { data: superheroData, isError } = useQuery({
-    queryKey: ["heroes", idSlug],
+    queryKey: ['heroes', idSlug],
     queryFn: () => getHeroAction(idSlug),
     retry: false,
   });
@@ -33,27 +33,27 @@ export const HeroPage = () => {
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
-      case "activo":
-        return "bg-green-500";
-      case "inactivo":
-        return "bg-gray-500";
-      case "retirado":
-        return "bg-blue-500";
+      case 'activo':
+        return 'bg-green-500';
+      case 'inactivo':
+        return 'bg-gray-500';
+      case 'retirado':
+        return 'bg-blue-500';
       default:
-        return "bg-gray-500";
+        return 'bg-gray-500';
     }
   };
 
   const getCategoryColor = (category: string) => {
     switch (category.toLowerCase()) {
-      case "héroe":
-        return "bg-blue-500";
-      case "villano":
-        return "bg-red-500";
-      case "antihéroe":
-        return "bg-purple-500";
+      case 'héroe':
+        return 'bg-blue-500';
+      case 'villano':
+        return 'bg-red-500';
+      case 'antihéroe':
+        return 'bg-purple-500';
       default:
-        return "bg-gray-500";
+        return 'bg-gray-500';
     }
   };
 
@@ -65,7 +65,7 @@ export const HeroPage = () => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
               <img
-                src={superheroData.image || "/placeholder.svg"}
+                src={superheroData.image || '/placeholder.svg'}
                 alt={superheroData.alias}
                 width={200}
                 height={200}
@@ -82,14 +82,14 @@ export const HeroPage = () => {
               <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
                 <Badge
                   className={`${getCategoryColor(
-                    superheroData.category,
+                    superheroData.category
                   )} text-white`}
                 >
                   {superheroData.category}
                 </Badge>
                 <Badge
                   className={`${getStatusColor(
-                    superheroData.status,
+                    superheroData.status
                   )} text-white`}
                 >
                   {superheroData.status}
@@ -123,8 +123,8 @@ export const HeroPage = () => {
                       key={i}
                       className={`w-4 h-4 ${
                         i < Math.floor(averagePower / 20)
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-400"
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-400'
                       }`}
                     />
                   ))}
@@ -366,7 +366,7 @@ export const HeroPage = () => {
                     <span className="text-gray-600">Categoría:</span>
                     <Badge
                       className={`${getCategoryColor(
-                        superheroData.category,
+                        superheroData.category
                       )} text-white`}
                     >
                       {superheroData.category}
@@ -376,7 +376,7 @@ export const HeroPage = () => {
                     <span className="text-gray-600">Estado:</span>
                     <Badge
                       className={`${getStatusColor(
-                        superheroData.status,
+                        superheroData.status
                       )} text-white`}
                     >
                       {superheroData.status}
@@ -406,7 +406,7 @@ export const HeroPage = () => {
                     <span className="text-gray-600">Años Activo:</span>
                     <span className="font-semibold">
                       {new Date().getFullYear() -
-                        Number.parseInt(superheroData.firstAppearance)}{" "}
+                        Number.parseInt(superheroData.firstAppearance)}{' '}
                       años
                     </span>
                   </div>
