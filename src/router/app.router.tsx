@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { createHashRouter, Navigate } from "react-router";
 
-import { AdminLayout } from "@/admin/layouts/AdminLayout";
+import { AdminLayout } from "@/admin/Layouts/AdminLayout";
 import { AdminPage } from "@/admin/pages/AdminPage";
 import { HeroesLayout } from "@/heroes/layouts/HeroesLayout";
 import { HeroPage } from "@/heroes/pages/hero/HeroPage";
