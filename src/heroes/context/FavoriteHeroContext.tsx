@@ -3,8 +3,8 @@ import {
   useEffect,
   useState,
   type PropsWithChildren,
-} from "react";
-import type { Hero } from "../types/hero.interface";
+} from 'react';
+import type { Hero } from '../types/hero.interface';
 
 interface FavoriteHeroContext {
   // State
@@ -20,13 +20,13 @@ interface FavoriteHeroContext {
 export const FavoriteHeroContext = createContext({} as FavoriteHeroContext);
 
 const getFavoritesFromLocalStorage = (): Hero[] => {
-  const favorites = localStorage.getItem("favorites");
+  const favorites = localStorage.getItem('favorites');
   return favorites ? JSON.parse(favorites) : [];
 };
 
 export const FavoriteHeroProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useState<Hero[]>(
-    getFavoritesFromLocalStorage(),
+    getFavoritesFromLocalStorage()
   );
 
   const toggleFavorite = (hero: Hero) => {
@@ -46,7 +46,7 @@ export const FavoriteHeroProvider = ({ children }: PropsWithChildren) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
   return (
